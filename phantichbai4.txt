@@ -1,0 +1,119 @@
+Nguyên tắc 1: Đặt tên theo PEP 8
+
+Sai:
+
+ds
+p
+l
+
+Đúng:
+
+roster_list
+player
+salary
+Nguyên tắc 2: Single Responsibility
+
+Mỗi hàm chỉ thực hiện một nhiệm vụ:
+
+display_roster()
+sign_player()
+update_player_status()
+generate_payroll_report()
+calculate_actual_pay()
+Nguyên tắc 3: Docstrings
+
+Ví dụ:
+
+def calculate_actual_pay(player):
+    """
+    Tính lương thực nhận của tuyển thủ.
+
+    Args:
+        player (dict): Thông tin tuyển thủ.
+
+    Returns:
+        float: Lương thực nhận.
+    """
+Logging Strategy
+
+File log:
+
+roster_app.log
+
+Cấu hình:
+
+logging.basicConfig(
+    filename="roster_app.log",
+    level=logging.INFO,
+    format="[%(asctime)s] - [%(levelname)s] - %(message)s"
+)
+
+Ví dụ:
+
+[2026-06-04 09:18:10,456] - [INFO] - Generated monthly payroll report. Total: 11500.0
+Phân tích hàm update_player_status()
+Input
+roster_list
+
+Danh sách tuyển thủ.
+
+Output
+None
+
+Cập nhật trực tiếp dữ liệu trong danh sách.
+
+Exceptions
+ValueError
+
+Khi HLV nhập:
+
+abc
+
+thay vì:
+
+5000
+
+Bắt bằng:
+
+except ValueError
+Salary <= 0
+-5000
+0
+
+Yêu cầu nhập lại.
+
+Player không tồn tại
+P99
+
+Thông báo lỗi và ghi log WARNING.
+
+Pseudocode
+Nhập player_id
+
+Chuẩn hóa:
+    strip()
+    upper()
+
+Tìm tuyển thủ
+
+Nếu không tồn tại:
+    báo lỗi
+    ghi log
+    return
+
+Hiển thị thông tin hiện tại
+
+Cho người dùng chọn:
+    1. cập nhật lương
+    2. cập nhật trạng thái
+
+Nếu chọn 1:
+    nhập lương mới
+    kiểm tra > 0
+    cập nhật
+    ghi log
+
+Nếu chọn 2:
+    chọn Active hoặc Benched
+    cập nhật
+    ghi log
